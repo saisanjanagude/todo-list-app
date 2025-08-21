@@ -2,7 +2,8 @@
 
 FROM node:20-alpine
 WORKDIR /app
-COPY . .
-RUN yarn install --production
-CMD ["node", "src/index.js"]
+COPY package.json yarn.lock ./
+RUN yarn install --production 
+COPY . . 
 EXPOSE 3000
+CMD ["node", "src/index.js"]
